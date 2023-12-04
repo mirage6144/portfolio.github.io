@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Dynamic Table with Input</title>
+</head>
+<body>
+
+<table id="myTable" border="1">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Age</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><input type="text" name="name1"></td>
+      <td><input type="number" name="age1"></td>
+      <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+    <tr>
+      <td><input type="text" name="name2"></td>
+      <td><input type="number" name="age2"></td>
+      <td><button onclick="deleteRow(this)">Delete</button></td>
+    </tr>
+  </tbody>
+</table>
+
+<br>
+
+<button onclick="addRow()">Add Row</button>
+<button onclick="deleteLastRow()">Delete Last Row</button>
+
+<script>
+  function addRow() {
+    const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+    const newRow = table.insertRow(table.rows.length);
+
+    const cell1 = newRow.insertCell(0);
+    const cell2 = newRow.insertCell(1);
+    const cell3 = newRow.insertCell(2);
+
+    cell1.innerHTML = '<input type="text" name="name">';
+    cell2.innerHTML = '<input type="number" name="age">';
+    cell3.innerHTML = '<button onclick="deleteRow(this)">Delete</button>';
+  }
+
+  function deleteLastRow() {
+    const table = document.getElementById("myTable").getElementsByTagName('tbody')[0];
+    const lastRow = table.rows.length - 1;
+    table.deleteRow(lastRow);
+  }
+
+  function deleteRow(btn) {
+    const row = btn.parentNode.parentNode;
+    row.parentNode.removeChild(row);
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,23 @@
+body{
+    background-image: url(i.jpg);
+     background-repeat:no-repeat ;
+     background-size: cover;
+     background-position:fixed;
+}
+h1{
+    color: white;
+    text-align: center;
+    text-decoration: underline;
+    font-family: sans-serif;
+
+
+}
+img{
+    height: 75px;
+    width: 300px;
+    position:absolute;
+    left:20px;
+   
+
+
+}
